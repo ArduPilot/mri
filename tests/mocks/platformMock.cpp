@@ -714,6 +714,15 @@ void __mriPlatform_SetSemihostCallReturnAndErrnoValues(int returnValue, int err)
     g_semihostCallErrno = err;
 }
 
+void __mriPlatform_SetSymbolAddress(Buffer* pBuffer, uint32_t address)
+{
+    // Do nothing.
+}
+
+int __mriPlatform_SetSymbolRequest(Buffer* pBuffer)
+{
+    return 0;
+}
 
 
 // Mock Setup and Cleanup APIs.

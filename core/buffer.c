@@ -162,6 +162,11 @@ void Buffer_WriteSizedString(Buffer* pBuffer, const char* pString, size_t length
         *(pBuffer->pCurrent++) = *pString++;
 }
 
+void Buffer_WriteStringAsHex(Buffer* pBuffer, const char* pString)
+{
+    while (*pString)
+        Buffer_WriteByteAsHex(pBuffer, *pString++);
+}
 
 static uint32_t parseNextHexDigitAndAddNibbleToValue(Buffer* pBuffer, uint32_t currentValue);
 static void     pushBackLastChar(Buffer* pBuffer);
@@ -391,5 +396,7 @@ static int doesBufferContainThisString(Buffer* pBuffer, const char* pDesiredStri
     
     return (strncmp(pBufferString, pDesiredString, stringLength) == 0) &&
            (Buffer_BytesLeft(pBuffer) == stringLength || 
-            pBufferString[stringLength] == ':');
+            pBufferString[stringLength] == ':'||
+            pBufferString[stringLength] == ';' ||
+            pBufferString[stringLength] == ',');
 }

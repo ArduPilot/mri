@@ -102,6 +102,12 @@ void                        __mriPlatform_SetSemihostCallReturnAndErrnoValues(in
 const uint8_t* __mriPlatform_GetUid(void);
 uint32_t       __mriPlatform_GetUidSize(void);
 
+void __mriPlatform_SetSymbolAddress(Buffer* pBuffer, uint32_t address);
+int __mriPlatform_SetSymbolRequest(Buffer* pBuffer);
+uint32_t __mriPlatform_RtosGetFirstThreadId(void);
+uint32_t __mriPlatform_RtosGetNextThreadId(void);
+const char* __mriPlatform_RtosGetExtraThreadInfo(uint32_t thread_id);
+int __mriPlatform_RtosGetThreadContext(Buffer* pBuffer, uint32_t thread_id);
 
 /* Macroes which allow code to drop the __mri namespace prefix. */
 #define Platform_Init                                       __mriPlatform_Init
@@ -152,5 +158,11 @@ uint32_t       __mriPlatform_GetUidSize(void);
 #define Platform_SetSemihostCallReturnAndErrnoValues        __mriPlatform_SetSemihostCallReturnAndErrnoValues
 #define Platform_GetUid                                     __mriPlatform_GetUid
 #define Platform_GetUidSize                                 __mriPlatform_GetUidSize
+#define Platform_SetSymbolAddress                           __mriPlatform_SetSymbolAddress
+#define Platform_SetSymbolRequest                           __mriPlatform_SetSymbolRequest
+#define Platform_RtosGetFirstThreadId                       __mriPlatform_RtosGetFirstThreadId
+#define Platform_RtosGetNextThreadId                        __mriPlatform_RtosGetNextThreadId
+#define Platform_RtosGetExtraThreadInfo                     __mriPlatform_RtosGetExtraThreadInfo
+#define Platform_RtosGetThreadContext                       __mriPlatform_RtosGetThreadContext
 
 #endif /* _PLATFORMS_H_ */

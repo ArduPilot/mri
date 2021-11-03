@@ -35,6 +35,7 @@
 #include "cmd_query.h"
 #include "cmd_break_watch.h"
 #include "cmd_step.h"
+#include "cmd_thread.h"
 #include "memory.h"
 
 
@@ -243,11 +244,13 @@ static int handleGDBCommand(void)
         {HandleFileIOCommand,                       'F'},
         {HandleRegisterReadCommand,                 'g'},
         {HandleRegisterWriteCommand,                'G'},
+        {HandleThreadContextCommand,                'H'},
         {HandleMemoryReadCommand,                   'm'},
         {HandleMemoryWriteCommand,                  'M'},
         {HandleQueryCommand,                        'q'},
         {HandleSingleStepCommand,                   's'},
         {HandleSingleStepWithSignalCommand,         'S'},
+        {HandleIsThreadActiveCommand,               'T'},
         {HandleBinaryMemoryWriteCommand,            'X'},
         {HandleBreakpointWatchpointRemoveCommand,   'z'},
         {HandleBreakpointWatchpointSetCommand,      'Z'}

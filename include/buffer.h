@@ -47,6 +47,7 @@ int32_t  __mriBuffer_ReadIntegerAsHex(Buffer* pBuffer);
 void     __mriBuffer_WriteIntegerAsHex(Buffer* pBuffer, int32_t value);
 int      __mriBuffer_IsNextCharEqualTo(Buffer* pBuffer, char thisChar);
 int      __mriBuffer_MatchesString(Buffer* pBuffer, const char* pString, size_t stringLength);
+void     __mriBuffer_WriteStringAsHex(Buffer* pBuffer, const char* pString);
 
 /* Macroes which allow code to drop the __mri namespace prefix. */
 #define Buffer_Init                 __mriBuffer_Init
@@ -68,5 +69,5 @@ int      __mriBuffer_MatchesString(Buffer* pBuffer, const char* pString, size_t 
 #define Buffer_WriteIntegerAsHex    __mriBuffer_WriteIntegerAsHex
 #define Buffer_IsNextCharEqualTo    __mriBuffer_IsNextCharEqualTo
 #define Buffer_MatchesString        __mriBuffer_MatchesString
-
+#define Buffer_WriteStringAsHex     __mriBuffer_WriteStringAsHex
 #endif /* _BUFFER_H_ */
